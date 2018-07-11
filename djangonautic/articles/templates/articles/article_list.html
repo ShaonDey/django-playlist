@@ -1,23 +1,23 @@
-{% load static from staticfiles %}
+{% extends 'base_layout.html' %}
 
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Articles</title>
-    <!--<link rel="stylesheet" href="/static/styles.css">-->
-    <link rel="stylesheet" href="{% static 'styles.css'%}">
-  </head>
-  <body>
-    <h1>Article List</h1>
-    <div class="articles">
-      {% for article in articles %}
-        <div class="article">
-          <h2><a href="#">{{ article.title }}</a></h2>
-          <p>{{ article.snippet }}</p>
-          <p>{{ article.date }}</p>
-        </div>
-      {% endfor %}
+{% block content %}
+
+<h1><u>Article List</u></h1>
+<div class="articles">
+  {% for article in articles %}
+    <div class="article" style="margin: 0 auto; width: 50%">
+      <h2><a href="{% url 'articles:detail' slug=article.slug %}">{{ article.title }}</a></h2>
+      <p>{{ article.snippet }}</p>
+      <p>{{ article.date }}</p>
     </div>
-  </body>
-</html>
+    <hr>
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+<!--
+{% block mainC %}
+<h2><i>this is test content for mainC block</i></h2>
+{% endblock %}
+-->

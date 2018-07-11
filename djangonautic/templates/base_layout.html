@@ -1,0 +1,23 @@
+{% load static from staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>djangonautic app</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1><a href="{% url 'articles:list' %}"><img src="{% static 'logo.png' %}" style="height: 100px; width: 100px;" alt="Article Logo" /></a></h1>
+      {% block content %}
+      {% endblock %}
+    </div>
+    <!--
+    <div class="mainContent">
+      {% block mainC %}
+      {% endblock %}
+    </div>
+    -->
+  </body>
+</html>
