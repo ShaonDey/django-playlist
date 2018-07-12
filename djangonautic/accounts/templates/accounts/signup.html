@@ -3,5 +3,10 @@
 {% block content %}
 
   <h1>Signup</h1>
+  <form class="site-form" action="/accounts/signup" method="post">
+    {{ userForm }}
+
+    <input type="submit" value="Signup">
+  </form>
 
 {% endblock %}
